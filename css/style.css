@@ -1,0 +1,195 @@
+body {
+	background-color: #f2f2f2;
+}
+
+html * {
+	font-family: 'Roboto', sans-serif !important;
+}
+
+#input, #content {
+	margin-top: 20px;
+}
+
+#notesForm, #bookmarksForm, #ideasForm {
+	margin-top: 10px;
+}
+
+#backup-btn {
+	position: absolute;
+	top: 20px;
+	right: 0;
+}
+
+#recordsOutput {
+	position: relative;
+}
+
+#recordsOutput > div {
+	position: relative;
+	float: left;
+}
+
+#category-header {
+		
+	width: 55%;
+}
+
+#controlContainer {		
+		
+	width: 45%;
+}
+
+#filteredCategoriesContainer {
+	padding: 5px 0;
+	width: 100%;
+}
+
+#tags-header {
+	padding: 5px;
+	width: 100%;	
+}
+
+#filteredTagsContainer {
+	padding: 5px;
+	width: 100%;
+}
+
+.record {
+	padding: 5px 10px 15px 10px;
+	background-color: white;
+	box-shadow: 2px 2px 2px #888888;
+	margin: 10px 5px 0 0;
+	float: left;
+	word-wrap: break-word;
+	width: 100%;	
+}
+
+.record:hover {
+	box-shadow: 5px 5px 5px #888888;
+}
+
+.tags {
+	display: inline-block;
+	margin: 0 5px 5px 0;
+	font-size: 11px;
+}
+
+.category {
+	display: inline-block;
+	margin-right: 5px;	
+}
+
+.note {
+	background-color: #FFF5CC;
+}
+
+.bookmark {
+	background-color: #F4F7F8;
+}
+
+textarea {
+	resize: none;
+}
+
+.inline-headers {
+	display: inline-block;
+	margin: 10px 2px 5px 0;
+}
+
+.btn {
+	box-shadow: 2px 2px 2px #888888;
+	border: none;
+	border-radius: 0 !important;
+}
+
+.btn-xs {
+	box-shadow: 1px 1px 1px #888888;
+	border: none;
+	border-radius: 0 !important;
+}
+
+.btn.active {
+	box-shadow: 0 1px 2px rgba(0,0,0,.1);	
+  	
+}
+
+.small-text {
+	font-size: 11px;
+}
+
+.record-date {
+	position: absolute;
+	margin: 0 5px 0 0;
+	font-size: 10px;
+	right: 0;
+	bottom: 0;
+}
+
+.record-category-addon {
+	margin: 10px 10px 0 0;
+	position: absolute;
+	top: 0;
+	right: 60px;
+	background-color: white;
+	text-align: center;
+	height: 23px;
+	padding: 3px 5px;
+	font-weight: bold;
+	box-shadow: 1px 1px 1px #888888;
+	font-size: 14px;
+}
+
+
+.record-content:hover:after {
+	content: ' click to edit';
+	color: grey;
+	font-weight: normal;	
+}
+
+.record-content:hover {
+
+}
+
+.record-content:focus:after {
+	content: '';
+}
+
+.record-title {	
+	font-weight: bold;
+	width: 70%;
+	
+}
+
+.record-body {
+	width: 100%;	
+	
+}
+
+.delete-btn {
+	position: absolute;
+	margin: 10px 10px 0 0;
+	font-size: 14px;
+	right: 0;
+	top: 0;
+}
+
+.bookmark-title {
+	margin-left: 60px;
+	width: 70%;
+}
+
+.bookmark-link {
+	position: absolute;	
+	margin: 10px 0 0 10px;
+	top: 0;
+	left: 0;
+	font-size: 14px;
+	height: 23px;
+	width: 50px;
+	text-align: center;
+	/*background-color: blue;*/
+}
+
+.form-control {
+	border-radius: 0px;
+}

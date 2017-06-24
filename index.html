@@ -1,1 +1,132 @@
-<h1>Lets begin</h1>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width = device-width, initial-scale = 1">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Dev Notebook</title>
+</head>
+<body onload="start()">
+
+	<div class="container">
+		
+		<div id="input" class="container col-lg-4">
+			<h4>Create new record: <span class="small-text">(select category)</span></h4>
+			<ul id="navBtn" class="nav">
+				
+				<a class="btn btn-default btn-sm" data-toggle="tab" href="#" data-target="#notesInput">Note</a>
+				<a class="btn btn-default btn-sm" data-toggle="tab" href="#" data-target="#bookmarksInput">Bookmark</a>
+				<a class="btn btn-default btn-sm" data-toggle="tab" href="#" data-target="#ideasInput">Idea</a>
+			</ul>
+			
+			<div class="tab-content">
+				<div id="notesInput" class="tab-pane fade in active">					
+					<form id="notesForm">
+						<div class="form-group">
+							<label for="">Note Title</label>
+							<input class="form-control" id="noteTitle" type="text" placeholder="note title">
+						</div>
+						<div class="form-group">
+							<label>Note Text</label>
+							<textarea class="form-control" form="#notesForm" id="noteBody" cols="40" rows="5"></textarea>
+						</div>											
+						<div class="form-group" id="noteTags">
+							<label>Select Tags: </label>
+							<button value="JavaScript" data-toggle="button" class="tags btn btn-default btn-xs">JavaScript</button>
+							<button value="jQuery" data-toggle="button" class="tags btn btn-default btn-xs">jQuery</button>	
+							<button value="SQL" data-toggle="button" class="tags btn btn-default btn-xs">SQL</button>	
+							<button value="Bootstrap" data-toggle="button" class="tags btn btn-default btn-xs">Bootstrap</button>							
+							<button value="CSS" data-toggle="button" class="tags btn btn-default btn-xs">CSS</button>	
+							<button value="Node.js" data-toggle="button" class="tags btn btn-default btn-xs">Node.js</button>	
+							<button value="PHP" data-toggle="button" class="tags btn btn-default btn-xs">PHP</button>	
+							<button value="Wordpress" data-toggle="button" class="tags btn btn-default btn-xs">Wordpress</button>	
+							<button value="HTML5" data-toggle="button" class="tags btn btn-default btn-xs">HTML5</button>						
+						</div>
+						<div class="form-group">
+							<label for="">Custom Tags: <span class="small-text">(separated by comma or two whitespaces)</span></label>
+							<input class="form-control" id="customNoteTags" type="text" placeholder="tag  tag2, tag3 , tag4,tag5, etc.">
+						</div>						
+						<button id="noteSubmit" value="note" class="btn btn-primary" type="submit">Submit</button>
+					</form>
+				</div>
+				<div id="bookmarksInput" class="tab-pane fade">					
+					<form id="bookmarksForm">
+						<div class="form-group">
+							<label for="">Bookmark Title</label>
+							<input class="form-control" id="bookmarkTitle" type="text" placeholder="bookmark title">
+						</div>						
+						<div class="form-group">
+							<label for="">Bookmark Url</label>
+							<input class="form-control" id="bookmarkUrl" type="text" placeholder="bookmark url">
+						</div>						
+						<div class="form-group" id="bookmarkTags">
+							<label>Select Tags: </label>
+							<button value="JavaScript" data-toggle="button" class="tags btn btn-default btn-xs">JavaScript</button>
+							<button value="jQuery" data-toggle="button" class="tags btn btn-default btn-xs">jQuery</button>	
+							<button value="SQL" data-toggle="button" class="tags btn btn-default btn-xs">SQL</button>	
+							<button value="Bootstrap" data-toggle="button" class="tags btn btn-default btn-xs">Bootstrap</button>							
+							<button value="CSS" data-toggle="button" class="tags btn btn-default btn-xs">CSS</button>	
+							<button value="Node.js" data-toggle="button" class="tags btn btn-default btn-xs">Node.js</button>	
+							<button value="PHP" data-toggle="button" class="tags btn btn-default btn-xs">PHP</button>	
+							<button value="Wordpress" data-toggle="button" class="tags btn btn-default btn-xs">Wordpress</button>	
+							<button value="HTML5" data-toggle="button" class="tags btn btn-default btn-xs">HTML5</button>						
+						</div>
+						<div class="form-group">
+							<label for="">Custom Tags: <span class="small-text">(separated by comma or two whitespaces)</span></label>
+							<input class="form-control" id="customBookmarkTags" type="text" placeholder="tag  tag2, tag3 , tag4,tag5, etc.">
+						</div>						
+						<button id="bookmarkSubmit" value="bookmark" class="btn btn-primary" type="submit">Submit</button>
+					</form>
+				</div>
+				<div id="ideasInput" class="tab-pane fade">
+					<form id="ideasForm">
+						<div class="form-group">
+							<label for="">Idea Title</label>
+							<input class="form-control" id="ideaTitle" type="text" placeholder="idea title">
+						</div>
+						<div class="form-group">
+							<label>Idea Description</label>
+							<textarea class="form-control" form="#ideasForm" id="ideaBody" cols="40" rows="5"></textarea>
+						</div>											
+						<div class="form-group" id="ideaTags">
+							<label>Select Tags: </label>
+							<button value="JavaScript" data-toggle="button" class="tags btn btn-default btn-xs">JavaScript</button>
+							<button value="jQuery" data-toggle="button" class="tags btn btn-default btn-xs">jQuery</button>	
+							<button value="SQL" data-toggle="button" class="tags btn btn-default btn-xs">SQL</button>	
+							<button value="Bootstrap" data-toggle="button" class="tags btn btn-default btn-xs">Bootstrap</button>							
+							<button value="CSS" data-toggle="button" class="tags btn btn-default btn-xs">CSS</button>	
+							<button value="Node.js" data-toggle="button" class="tags btn btn-default btn-xs">Node.js</button>	
+							<button value="PHP" data-toggle="button" class="tags btn btn-default btn-xs">PHP</button>	
+							<button value="Wordpress" data-toggle="button" class="tags btn btn-default btn-xs">Wordpress</button>	
+							<button value="HTML5" data-toggle="button" class="tags btn btn-default btn-xs">HTML5</button>						
+						</div>
+						<div class="form-group">
+							<label for="">Custom Tags: <span class="small-text">(separated by comma or two whitespaces)</span></label>
+							<input class="form-control" id="customIdeaTags" type="text" placeholder="tag  tag2, tag3 , tag4,tag5, etc.">
+						</div>						
+						<button id="ideasSubmit" value="idea" class="btn btn-primary" type="submit">Submit</button>
+					</form>
+				</div>				
+			</div>
+		</div>
+
+		<div id="content" class="container col-lg-8">					
+			<div id="recordsOutput" class="tab-pane fade in active">
+
+			</div>			
+		</div>
+	</div>
+
+	<script
+			  src="http://code.jquery.com/jquery-3.2.1.js"
+			  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+			  crossorigin="anonymous"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="js/FileSaver.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
