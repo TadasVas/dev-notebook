@@ -23,6 +23,31 @@ function backupFilteredJson () {
 		(saveAs(bckFile, "records_backup-filtered.json"));}
 }
 
+function validateRecord(title, body){
+  if(!title || !body){
+    alert('Please fill in the form');
+    return false;
+  }
+  return true;
+}
+
+function validateBookmark(title, url){
+  if(!title || !url){
+    alert('Please fill in the form');
+    return false;
+  }
+
+  var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  var regex = new RegExp(expression);
+
+  if(!url.match(regex)){
+    alert('Please use a valid URL');
+    return false;
+  }
+
+  return true;
+}
+
 function editListener () {	
 	var records = JSON.parse(localStorage.getItem('records'));
 	var recordsEdit = document.getElementsByClassName('record-content')
@@ -258,6 +283,10 @@ function submitNotes (e) {
     	return v.toString(16);
 	});
 
+	if(!validateRecord(noteTitle, noteBody)){
+		return false;
+	}
+
 	var customTagsArr = customTags.replace(/"/g, "'")
 	.split(/,\s|\s,\s|\s,|\s{2,},|\s{2,}|,/)	
 	.filter(function(x) { return x.trim() != ''; });	
@@ -278,7 +307,8 @@ function submitNotes (e) {
 			noteTags[i].classList.remove('active');
 		}
 	}
-	document.getElementById('notesForm').reset();	
+	document.getElementById('notesForm').reset();
+	document.getElementById('noteBody').value="";		
 	combiner(e, note);
 }
 
@@ -293,6 +323,10 @@ function submitIdeas (e) {
     	var r = Math.random()*16|0,	v = c == 'x' ? r : (r&0x3|0x8);
     	return v.toString(16);
 	});
+
+	if(!validateRecord(ideaTitle, ideaBody)){
+		return false;
+	}
 
 	var customTagsArr = customTags.replace(/"/g, "'")
 	.split(/,\s|\s,\s|\s,|\s{2,},|\s{2,}|,/)	
@@ -314,7 +348,8 @@ function submitIdeas (e) {
 			ideaTags[i].classList.remove('active');
 		}
 	}
-	document.getElementById('ideasForm').reset();	
+	document.getElementById('ideasForm').reset();
+	document.getElementById('ideaBody').value="";	
 	combiner(e, idea);
 }
 
@@ -329,6 +364,10 @@ function submitBookmarks (e) {
     	var r = Math.random()*16|0,	v = c == 'x' ? r : (r&0x3|0x8);
     	return v.toString(16);
 	});
+
+	if(!validateBookmark(bookmarkTitle, bookmarkUrl)){
+		return false;
+	}
 
 	var customTagsArr = customTags.replace(/"/g, "'")
 	.split(/,\s|\s,\s|\s,|\s{2,},|\s{2,}|,/)	
