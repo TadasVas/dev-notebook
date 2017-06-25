@@ -1,5 +1,4 @@
 'use strict';
-function start () {constructor(); fetchRecords();}
 
 var recordsOutput = document.getElementById('recordsOutput');
 var records = JSON.parse(localStorage.getItem('records'));
@@ -22,38 +21,6 @@ function backupFilteredJson () {
 	var bckFile = new Blob([filteredRecords], {type: "application/json"});	
 	if (confirm("Backup filtered records in JSON format?") == true) {
 		(saveAs(bckFile, "records_backup-filtered.json"));}
-}
-
-function constructor () {	
-	if (localStorage.getItem('filter') === null) {
-		var filter = [{"tags":[],"category":[],"date":"Descending"}];
-		localStorage.setItem('filter', JSON.stringify(filter));
-	}
-	if (localStorage.getItem('records') === null) {
-		var records = [{
- 	 "id": "test01",
-	 "category": ["note"],
- 	 "name": "Export to JSON",
- 	 "body": "You can backup records in JSON format (all records or the ones currently filtered).",
-	 "date": "2017-06-24T17:11:13.448Z",
- 	 "tags": ["help", "json", "test"]
-	}, {
-	  "id": "test02",
-	  "category": ["bookmark"],
-	  "name": "&lt;-- URL. Google ",
-	  "url": "https://www.google.com",
-	  "date": "2017-06-24T17:07:38.322Z",
-	  "tags": ["test"]
-	}, {
-	  "id": "test03",
-	  "category": ["note"],
-	  "name": "Filter by category and/or tags. Edit This Title",
-	  "body": "All records are saved in localStorage of the browser. You can filter all records by categories (note, bookmark) and/or by tags. You can edit title and text.",
-	  "date": "2017-06-24T16:56:59.356Z",
-	  "tags": ["test", "help"]
-	}];
-		localStorage.setItem('records', JSON.stringify(records));		
-	}
 }
 
 function editListener () {	
@@ -142,7 +109,38 @@ function dateSortListener () {
 }
 
 function fetchRecords () {
+	if (localStorage.getItem('filter') === null) {
+		var filter = [{"tags":[],"category":[],"date":"Descending"}];
+		localStorage.setItem('filter', JSON.stringify(filter));
+	}
+	if (localStorage.getItem('records') === null) {
+		var records = [{
+ 	 "id": "test01",
+	 "category": ["note"],
+ 	 "name": "Export to JSON",
+ 	 "body": "You can backup records in JSON format (all records or the ones currently filtered).",
+	 "date": "2017-06-24T17:11:13.448Z",
+ 	 "tags": ["help", "json", "test"]
+	}, {
+	  "id": "test02",
+	  "category": ["bookmark"],
+	  "name": "&lt;-- URL. Google ",
+	  "url": "https://www.google.com",
+	  "date": "2017-06-24T17:07:38.322Z",
+	  "tags": ["test"]
+	}, {
+	  "id": "test03",
+	  "category": ["note"],
+	  "name": "Filter by category and/or tags. Edit This Title",
+	  "body": "All records are saved in localStorage of the browser. You can filter all records by categories (note, bookmark) and/or by tags. You can edit title and text.",
+	  "date": "2017-06-24T16:56:59.356Z",
+	  "tags": ["test", "help"]
+	}];
+		localStorage.setItem('records', JSON.stringify(records));		
+	}
+
 	var records = JSON.parse(localStorage.getItem('records'));
+	var filter = JSON.parse(localStorage.getItem('filter'));			
 	recordsOutput.innerHTML = "";
 	if (filter[0].date == "Descending")	{
 		records.sort(function(a,b){ return new Date(b.date) - new Date(a.date);	});
