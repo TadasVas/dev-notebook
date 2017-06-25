@@ -24,6 +24,7 @@ function backupFilteredJson () {
 }
 
 function editListener () {	
+	var records = JSON.parse(localStorage.getItem('records'));
 	var recordsEdit = document.getElementsByClassName('record-content')
 	for (var i = 0; i < recordsEdit.length; i++) {
 		recordsEdit[i].addEventListener('keydown', function() {
@@ -57,6 +58,7 @@ function editListener () {
 }
 
 function deleteListener () {
+	var records = JSON.parse(localStorage.getItem('records'));
 	var deleteBtns = document.getElementsByClassName("delete-btn")
 	for (var i = 0; i < deleteBtns.length; i++) {
 		deleteBtns[i].addEventListener('click', function () {
@@ -73,7 +75,8 @@ function deleteListener () {
 	}
 }
 
-function filterListener () {		
+function filterListener () {
+	var filter = JSON.parse(localStorage.getItem('filter'));		
 	var dataFilter = document.getElementsByClassName("data-filter");	
 	for (var i = 0; i < dataFilter.length; i++) {
 		dataFilter[i].addEventListener('click', function () {
@@ -95,6 +98,7 @@ function filterListener () {
 }
 
 function dateSortListener () {
+	var filter = JSON.parse(localStorage.getItem('filter'));
 	var dateFilter = document.getElementById('dateSort');
 	dateFilter.addEventListener('click', function(){
 		if(filter[0].date == "Descending"){
