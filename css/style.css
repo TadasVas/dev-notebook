@@ -29,13 +29,11 @@ html * {
 	float: left;
 }
 
-#category-header {
-		
+#category-header {		
 	width: 55%;
 }
 
-#controlContainer {		
-		
+#controlContainer {	
 	width: 45%;
 }
 
