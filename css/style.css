@@ -146,10 +146,6 @@ textarea {
 	font-weight: normal;	
 }
 
-.record-content:hover {
-
-}
-
 .record-content:focus:after {
 	content: '';
 }
